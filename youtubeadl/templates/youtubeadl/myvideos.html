@@ -1,0 +1,19 @@
+{% extends 'youtubeadl/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block main %}
+  <p>Videos which you have downloaded are :</p>
+
+  {%if videoinstance_list %}
+  <ul>
+    {% for single_video in videoinstance_list %}
+    <li>
+      <h1>{{single_video.video.video_title}}</h1>
+      <video name="{{single_video.video_title}}" controls autoplay width ="50%" height="40%">
+        <source src="{% static 'img/omegle.mp4' %}" type = "video/mp4"></source>
+      </video>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endblock %}

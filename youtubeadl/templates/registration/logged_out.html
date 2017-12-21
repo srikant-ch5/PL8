@@ -1,0 +1,32 @@
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/loginstyle.css' %}" type="text/css" />
+<style>
+h1 {
+    height: 200px;
+    width: 400px;
+    background: transparent;
+    color:blue;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+}
+h3{
+  height:400px;
+  width:300px;
+  background:transparent;
+  color:red;
+
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  margin-top: -100px;
+  margin-left: -200px;
+}
+</style>
+<h1>Loged Out</h1>
+<h3><a href ="{% url 'login' %}">Click Here to Login again</a></h3>
+{% endblock %}

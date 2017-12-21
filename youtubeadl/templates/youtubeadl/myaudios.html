@@ -1,0 +1,19 @@
+{% extends 'youtubeadl/base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% block main %}
+  <p>Audios which you have downloaded are :</p>
+
+  {%if audioinstance_list %}
+  <ul>
+    {% for single_audio in audioinstance_list %}
+    <li>
+      <h1>{{single_audio.audio.audio_title}}</h1>
+      <audio controls>
+        <source src="{% static 'img/faded.mp3' %}" type = "audio/ogg"></source>Your browser does not support audio player
+      </audio>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endblock %}
