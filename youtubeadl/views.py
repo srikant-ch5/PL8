@@ -31,10 +31,15 @@ def submit(request):
 	if request.method == "POST":
 		try:
 			url = request.POST.get("link",False)
-			title = request.POST.get("title",False)
-			length = request.POST.get("length",False)
+			yv_video = pafy.new(url)
+			title = yv_video.title
+			length = yv_video.length
 			user = request.user
-
+			streams = yv_video.streams
+			best_quality = yv_video.getBest()
+			
+			best_quality.download(quiet = False)
+		
 			present = False
 			entries = Video.objects.all()
 
